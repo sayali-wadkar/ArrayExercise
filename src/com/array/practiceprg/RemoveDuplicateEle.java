@@ -11,37 +11,27 @@ public class RemoveDuplicateEle {
 
 	private static void duplicate() {
 
-		    int a[] = {1,2,3,4,5,5,1};
-		    int c=0;
-		    
-		    for(int i=0;i<a.length;i++)
-		    {
-		    	for(int j=i+1;j<a.length;j++)
-		    	{
-		    		if(a[i]>a[j]) {
-		    		 c=a[i];
-		    		a[i]=a[j];
-		    		a[j]=c;
-		    		}
-		    	}
-		    }
-		    System.out.println("sorted array :" +"\n"+Arrays.toString(a));
-		    System.out.println("After removed duplicte elements : ");
-		    int j = 0;
-		    for (int i = 0; i < a.length - 1; i++) {
-		        if (a[i] != a[i + 1]) {
-		            a[j] = a[i];
-		            j++;
-		        }
-		    }
-		    a[j] = a[a.length - 1];
-		    for (int i = 0; i <= j; i++) {
-		        System.out.println(a[i]);
-		    }
-//		    System.out.println("duplicte elements :");
+		int a[] = { 1, 2, 3, 4, 5, 5, 1 };
+		int b[] = new int[a.length];
+		int s = 0;
+		System.out.println(Arrays.toString(a));
 
-		
-		
+		for (int j = 0; j < a.length; j++) {
+			int c = 0;
+			for (int i = j + 1; i < a.length; i++) {
+				if (a[j] == a[i])
+					c++;
+			}
+			if (c < 1) {
+				b[s] = a[j];
+				s++;
+			}
+		}
+		int k[] = new int[s];
+		for (int i = 0; i < k.length; i++) {
+			k[i] = b[i];
+		}
+		System.out.println(Arrays.toString(k));
+
 	}
-
 }
